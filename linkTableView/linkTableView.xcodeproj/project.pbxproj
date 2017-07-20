@@ -15,6 +15,7 @@
 		A506956D1F20BFED008A00E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A506956B1F20BFED008A00E2 /* LaunchScreen.storyboard */; };
 		A50695781F20BFED008A00E2 /* linkTableViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A50695771F20BFED008A00E2 /* linkTableViewTests.m */; };
 		A50695831F20BFED008A00E2 /* linkTableViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A50695821F20BFED008A00E2 /* linkTableViewUITests.m */; };
+		A50695921F20D05D008A00E2 /* LinkTableOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50695911F20D05D008A00E2 /* LinkTableOneViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,10 @@
 		A506957E1F20BFED008A00E2 /* linkTableViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = linkTableViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50695821F20BFED008A00E2 /* linkTableViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = linkTableViewUITests.m; sourceTree = "<group>"; };
 		A50695841F20BFED008A00E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A50695901F20D05D008A00E2 /* LinkTableOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkTableOneViewController.h; sourceTree = "<group>"; };
+		A50695911F20D05D008A00E2 /* LinkTableOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkTableOneViewController.m; sourceTree = "<group>"; };
+		A577663D1F20D4C9005CBE20 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		A577663E1F20D6AD005CBE20 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +106,8 @@
 		A506955C1F20BFED008A00E2 /* linkTableView */ = {
 			isa = PBXGroup;
 			children = (
-				A50695601F20BFED008A00E2 /* AppDelegate.h */,
-				A50695611F20BFED008A00E2 /* AppDelegate.m */,
-				A50695631F20BFED008A00E2 /* ViewController.h */,
-				A50695641F20BFED008A00E2 /* ViewController.m */,
-				A50695661F20BFED008A00E2 /* Main.storyboard */,
-				A50695691F20BFED008A00E2 /* Assets.xcassets */,
-				A506956B1F20BFED008A00E2 /* LaunchScreen.storyboard */,
-				A506956E1F20BFED008A00E2 /* Info.plist */,
+				A577663F1F20D966005CBE20 /* Application */,
+				A57766401F20D983005CBE20 /* Controller */,
 				A506955D1F20BFED008A00E2 /* Supporting Files */,
 			);
 			path = linkTableView;
@@ -117,6 +116,10 @@
 		A506955D1F20BFED008A00E2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A50695691F20BFED008A00E2 /* Assets.xcassets */,
+				A50695661F20BFED008A00E2 /* Main.storyboard */,
+				A506956B1F20BFED008A00E2 /* LaunchScreen.storyboard */,
+				A506956E1F20BFED008A00E2 /* Info.plist */,
 				A506955E1F20BFED008A00E2 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -138,6 +141,28 @@
 				A50695841F20BFED008A00E2 /* Info.plist */,
 			);
 			path = linkTableViewUITests;
+			sourceTree = "<group>";
+		};
+		A577663F1F20D966005CBE20 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A577663E1F20D6AD005CBE20 /* PrefixHeader.pch */,
+				A577663D1F20D4C9005CBE20 /* Header.h */,
+				A50695601F20BFED008A00E2 /* AppDelegate.h */,
+				A50695611F20BFED008A00E2 /* AppDelegate.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		A57766401F20D983005CBE20 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A50695631F20BFED008A00E2 /* ViewController.h */,
+				A50695641F20BFED008A00E2 /* ViewController.m */,
+				A50695901F20D05D008A00E2 /* LinkTableOneViewController.h */,
+				A50695911F20D05D008A00E2 /* LinkTableOneViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +300,7 @@
 			files = (
 				A50695651F20BFED008A00E2 /* ViewController.m in Sources */,
 				A50695621F20BFED008A00E2 /* AppDelegate.m in Sources */,
+				A50695921F20D05D008A00E2 /* LinkTableOneViewController.m in Sources */,
 				A506955F1F20BFED008A00E2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +387,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/linkTableView/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -408,6 +435,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/linkTableView/PrefixHeader.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -426,6 +454,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COPY_HEADERS_RUN_UNIFDEF = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = linkTableView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = elevenSelf.linkTableView;
@@ -437,6 +467,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COPY_HEADERS_RUN_UNIFDEF = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = linkTableView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = elevenSelf.linkTableView;
@@ -509,6 +541,7 @@
 				A50695891F20BFED008A00E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A506958A1F20BFED008A00E2 /* Build configuration list for PBXNativeTarget "linkTableViewTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +550,7 @@
 				A506958C1F20BFED008A00E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A506958D1F20BFED008A00E2 /* Build configuration list for PBXNativeTarget "linkTableViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +559,7 @@
 				A506958F1F20BFED008A00E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

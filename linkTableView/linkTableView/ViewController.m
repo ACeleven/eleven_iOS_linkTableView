@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "LinkTableOneViewController.h"
 
 @interface ViewController ()
 
@@ -17,8 +18,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"Hello World!!");
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    UIButton *myBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, eleWIDTH, 50)];
+    [myBtn setTitle:@"TableView联动" forState:UIControlStateNormal];
+    [myBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [myBtn addTarget:self action:@selector(BtnAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:myBtn];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)BtnAction{
+    LinkTableOneViewController *VC = [[LinkTableOneViewController alloc] init];
+    [self.navigationController pushViewController:VC animated:YES];
 }
 
 
