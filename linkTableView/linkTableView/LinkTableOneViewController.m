@@ -13,6 +13,9 @@
 @property (nonatomic, strong) UITableView *leftTableView;
 @property (nonatomic, strong) UITableView *rightTableView;
 
+@property (nonatomic, strong) NSArray *leftDataSource;
+@property (nonatomic, strong) NSArray *rightDataSource;
+
 @end
 
 @implementation LinkTableOneViewController
@@ -24,9 +27,18 @@
     
     self.title = @"TableView联动";
     
-    [self loadTableView];
+    [self loadData];
     
     // Do any additional setup after loading the view.
+}
+
+-(void)loadData{
+    _leftDataSource = @[@"left1",@"left2",@"left3",@"left4",@"left5",@"left6",@"left7",@"left8",@"left9",@"left10",@"left11",@"left12",@"left13",@"left14",@"left15",@"left16",@"left17",@"left18",@"left19",@"left20"];
+    
+    _rightDataSource = @[@"right1",@"right2",@"right3",@"right4",@"right5",@"right6",@"right7",@"right8",@"right9",@"right10"];
+    
+    [self loadTableView];
+    
 }
 
 -(void)loadTableView{
@@ -41,21 +53,21 @@
     if (tableView == _leftTableView) {
         return 1;
     }
-    return 1;
+    return 20;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (tableView == _leftTableView) {
-        return 5;
+        return 20;
     }
-    return 20;
+    return 10;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (tableView == _leftTableView) {
-        return 30;
+        return 50;
     }
-    return 60;
+    return 80;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,14 +77,13 @@
     if (nil == cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = @"test";
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (tableView == _leftTableView)
+        cell.textLabel.text = _leftDataSource[indexPath.row];
+    else
+        cell.textLabel.text = [NSString stringWithFormat:@"%@--%@",_leftDataSource[indexPath.section],_rightDataSource[indexPath.row]];
+        
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
 }
 
 -(UITableView *)leftTableView{
@@ -100,6 +111,31 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == _leftTableView) {
+        NSIndexPath *moveIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.row];
+        
+        //animated为YES会导致leftTableView选择乱跳
+        [_rightTableView selectRowAtIndexPath:moveIndexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
+        
+        [_rightTableView deselectRowAtIndexPath:moveIndexPath animated:YES];
+    }
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    if (scrollView == self.rightTableView) {
+        NSIndexPath *topIndexPath = [[_rightTableView indexPathsForVisibleRows]firstObject];
+        NSIndexPath *moveIndexPath = [NSIndexPath indexPathForRow:topIndexPath.section inSection:0];
+        
+        [_leftTableView selectRowAtIndexPath:moveIndexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+
+    }
+    
 }
 
 /*
